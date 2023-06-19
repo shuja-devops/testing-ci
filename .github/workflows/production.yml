@@ -1,0 +1,41 @@
+# Used on master and staging branches
+name: Production CI
+
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:
+      - 'master' # Push events on master branch
+      - 'next' # Push events on staging branch
+      - 'alpha' # Push events on alpha branch
+      - 'beta' # Push events on beta branch
+
+jobs:
+  test:
+    name: Test, Build & Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v2
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.13.0
+          cache: yarn
+
+      - name: 📦 Install dependencies
+        run: yarn install
+
+      # - name: 🧪 Tests
+      #   run: yarn lint
+
+      - name: 🛠 Build Distribution
+        run: yarn build
+
+      - name: ⚡️ Semantic Release
+        run: npx semantic-release@18
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

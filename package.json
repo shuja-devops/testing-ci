@@ -1,0 +1,15 @@
+{
+  "name": "testing-cicd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api.js",
+  "scripts": {
+    "test": "lint"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "lint": "^0.8.19"
+  }
+}
