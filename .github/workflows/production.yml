@@ -33,7 +33,7 @@ jobs:
       #   run: yarn build
 
       - name: ⚡️ Semantic Release
-        run: npx semantic-release@21
+        run: npx semantic-release@19
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
