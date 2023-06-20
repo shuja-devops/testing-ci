@@ -5,7 +5,7 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches:
-      - 'main' # Push events on master branch
+      - 'next' # Push events on master branch
 
 jobs:
   test:
@@ -31,8 +31,8 @@ jobs:
       # - name: 🛠 Build Distribution
       #   run: yarn build
 
-      - name: ⚡️ Semantic Release
-        run: npx semantic-release@18
+      - name: ⚡️ Semantic Release Vers
+        run: npx semantic-release@19
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
