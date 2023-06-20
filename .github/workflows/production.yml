@@ -19,7 +19,7 @@ jobs:
       - name: 🏗 Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: 16.13.0
+          node-version: 18
           cache: yarn
 
       - name: 📦 Install dependencies
@@ -32,7 +32,7 @@ jobs:
       #   run: yarn build
 
       - name: ⚡️ Semantic Release Vers
-        run: npx semantic-release@20.0.1
+        run: npx semantic-release@21.0.5
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
