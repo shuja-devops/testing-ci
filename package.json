@@ -11,5 +11,8 @@
   "dependencies": {
     "express": "^4.18.2",
     "lint": "^0.8.19"
+  },
+  "devDependencies": {
+    "semantic-release": "^21.0.5"
   }
 }
