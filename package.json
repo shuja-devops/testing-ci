@@ -4,7 +4,8 @@
   "description": "",
   "main": "api.js",
   "scripts": {
-    "test": "lint"
+    "test": "lint",
+	"build": "npm build"
   },
   "author": "",
   "license": "ISC",

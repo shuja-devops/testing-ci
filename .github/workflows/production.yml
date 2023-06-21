@@ -29,8 +29,8 @@ jobs:
       # - name: 🧪 Tests
       #   run: yarn lint
 
-      # - name: 🛠 Build Distribution
-      #   run: yarn build
+      - name: 🛠 Build Distribution
+        run: yarn build
 
       - name: ⚡️ Semantic Release V
         run: npx semantic-release@16
