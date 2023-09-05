@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Create secrets file
         run: |
-          echo ${secrets}
+          echo ${{secrets}}
         # run: |
         #   for SECRET_NAME in $(compgen -e); do
         #     # SECRET_VALUE=${!SECRET_NAME}
