@@ -6,34 +6,44 @@ on:
     # Sequence of patterns matched against refs/heads
     branches:
       - 'main' # Push events on master branch
-      - 'next' # Push events on next branch
-
+      
 jobs:
-  test:
-    name: Test, Build & Release
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 🏗 Setup repo
+      - name: Checkout code
         uses: actions/checkout@v2
+      - name: Create secrets file
+        run: |
+          for SECRET_NAME in $(compgen -e); do
+            # SECRET_VALUE=${!SECRET_NAME}
+            echo ${SECRET_NAME}
+          done
+  # test:
+    # name: Test, Build & Release
+    # runs-on: ubuntu-latest
 
-      - name: 🏗 Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          cache: yarn
+    # steps:
+    #   - name: 🏗 Setup repo
+    #     uses: actions/checkout@v2
 
-      - name: 📦 Install dependencies
-        run: yarn install
+    #   - name: 🏗 Setup Node
+    #     uses: actions/setup-node@v2
+    #     with:
+    #       node-version: 16
+    #       cache: yarn
 
-      # - name: 🧪 Tests
-      #   run: yarn lint
+    #   - name: 📦 Install dependencies
+    #     run: yarn install
 
-      - name: 🛠 Build Distribution
-        run: yarn build
+    #   # - name: 🧪 Tests
+    #   #   run: yarn lint
 
-      - name: ⚡️ Semantic Release V
-        run: npx semantic-release@16
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    #   - name: 🛠 Build Distribution
+    #     run: yarn build
+
+    #   - name: ⚡️ Semantic Release V
+    #     run: npx semantic-release@16
+    #     env:
+    #       GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+    #       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
