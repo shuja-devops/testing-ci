@@ -15,10 +15,12 @@ jobs:
         uses: actions/checkout@v2
       - name: Create secrets file
         run: |
-          for SECRET_NAME in $(compgen -e); do
-            # SECRET_VALUE=${!SECRET_NAME}
-            echo ${SECRET_NAME}
-          done
+          echo ${secrets}
+        # run: |
+        #   for SECRET_NAME in $(compgen -e); do
+        #     # SECRET_VALUE=${!SECRET_NAME}
+        #     echo ${SECRET_NAME}
+        #   done
   # test:
     # name: Test, Build & Release
     # runs-on: ubuntu-latest
