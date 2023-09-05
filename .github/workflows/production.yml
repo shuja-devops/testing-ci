@@ -18,7 +18,7 @@ jobs:
           # echo ${{secrets}}
         run: |
           for SECRET_NAME in ${{secrets}}; do
-            echo ${SECRET_NAME}
+            echo $SECRET_NAME
           done
   # test:
     # name: Test, Build & Release
